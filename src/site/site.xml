@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<project name="Maven" xmlns="http://maven.apache.org/DECORATION/1.0.0"
+		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
+	<bannerLeft>
+		<name>BrainStorm</name>
+		<src>/images/brainstorm-logo.png</src>
+		<href>https://github.com/mitrais/brainstorm</href>
+	</bannerLeft>
+
+	<body>
+		<links>
+			<item name="Source Code" href="https://github.com/mitrais/brainstorm"/>
+		</links>
+
+		<menu name="Navigation">
+			<item name="About" href="about.html"/>
+			<item name="Contributing" href="contributing.html"/>
+			<item name="FAQ" href="faq.html"/>
+		</menu>
+
+		<menu ref="reports"/>
+	</body>
+	<skin>
+		<groupId>org.apache.maven.skins</groupId>
+		<artifactId>maven-fluido-skin</artifactId>
+		<version>1.7</version>
+	</skin>
+	<custom>
+		<fluidoSkin>
+			<sideBarEnabled>true</sideBarEnabled>
+		</fluidoSkin>
+	</custom>
+</project>
