@@ -2,4 +2,4 @@
 
 Just another question and answer portal.
 
-![alt text](images/brainstorm-main.png "BrainStorm screenshot")
+![alt text](/brainstorm/images/brainstorm-main.png "BrainStorm screenshot")

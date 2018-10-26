@@ -3,22 +3,22 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<parent>
-		<artifactId>brainstorm</artifactId>
-		<groupId>com.mitrais.brainstorm</groupId>
-		<version>0.0.1-SNAPSHOT</version>
-	</parent>
 	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.mitrais.brainstorm</groupId>
+		<artifactId>parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../parent</relativePath>
+	</parent>
 
 	<artifactId>web-rest</artifactId>
+	<name>Brainstorm RESTful Web</name>
+	<description>Brainstorm RESTful web component</description>
 
-	<name>web-rest</name>
-	<!-- FIXME change it to the project's website -->
-	<url>http://www.example.com</url>
 	<dependencies>
 		<dependency>
 			<groupId>com.mitrais.brainstorm</groupId>
-			<artifactId>core</artifactId>
+			<artifactId>core-persistence</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

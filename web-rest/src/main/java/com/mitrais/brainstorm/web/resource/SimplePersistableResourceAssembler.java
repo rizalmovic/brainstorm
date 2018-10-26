@@ -45,7 +45,7 @@ public class SimplePersistableResourceAssembler<T extends Persistable> extends S
 	 * Default a assembler based on Spring MVC controller, resource type, and {@link RelProvider}. With this combination
 	 * of information, resources can be defined.
 	 *
-	 * @see #setBasePath(String) to adjust base path to something like "/api"/
+	 * set the #basePath to adjust base path to something like "/api"/
 	 *
 	 * @param controllerClass - Spring MVC controller to base links off of
 	 * @param relProvider
