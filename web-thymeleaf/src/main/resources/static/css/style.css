@@ -1,0 +1,22 @@
+nav.navbar {
+    margin-bottom: 1rem;
+}
+@media screen and (max-width: 1087px) {
+	.main .column {
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+	}
+}
+
+.main .columns:last-child {
+	margin-bottom: 1.5rem;
+}
+
+.navbar-dropdown {
+	padding-left: .75rem;
+}
+
+.footer {
+	padding: 3rem 1.5rem 6rem;
+	text-align: center;
+}
