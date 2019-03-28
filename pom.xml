@@ -37,7 +37,8 @@
 		<module>parent</module>
 		<module>core-persistence</module>
 		<module>web-rest</module>
-	</modules>
+        <module>web-thymeleaf</module>
+    </modules>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
