@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Brainstorm</title>
+    <link rel="stylesheet" href="/css/bulma.css" />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/site.css" />
+  </head>
+  <body>
+    <div th:replace="fragments/header::header"></div>
+
+    <!-- Main Body -->
+    <div class="main container">
+      <div class="columns">
+        <!-- Left panel -->
+        <div class="column is-two-thirds" layout:fragment="content"></div>
+        <!-- Eof Left Panel -->
+
+        <!--  Right Panel -->
+        <div class="column">
+          <!-- ADS -->
+          <section class="card mb2em">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <img src="/images/puzzle.jpg" alt="puzzle image" />
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="content">
+                <h4 class="title is-6">Helpful tips</h4>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing
+                  elit.Phasellus nec iaculis mauris.
+                </p>
+                <a href="#">Learn More</a>
+              </div>
+            </div>
+          </section>
+          <!-- EOF Ads -->
+
+          <section
+            th:replace="fragments/featured-contributor::contributor"
+          ></section>
+        </div>
+        <!-- Eof Right Panel -->
+      </div>
+    </div>
+    <!-- End of Main Body -->
+
+    <div th:replace="fragments/footer::footer"></div>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

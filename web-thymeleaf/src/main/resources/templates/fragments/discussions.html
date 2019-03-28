@@ -1,0 +1,63 @@
+<!-- Discussion-->
+<section id="discussion" th:fragment="discussions">
+  <div class="columns">
+    <div class="column">
+      <h3 class="title is-4 is-spaced">
+        Discussion this week
+      </h3>
+    </div>
+    <div class="column">
+      <div
+        class="tabs is-toggle is-right tab-filter"
+        data-target="#discussion-items"
+      >
+        <ul>
+          <li class="is-active"><a href="all">All</a></li>
+          <li><a href="featured">Featured</a></li>
+          <li><a href="hot">Hot</a></li>
+          <li><a href="my-region">My Region</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div id="discussion-items" class="panel">
+    <div class="panel-block filter" data-th-each="post : ${posts}">
+      <div class="panel-icon">
+        <div class="far fa-fire"></div>
+      </div>
+      <span>[[ ${post.title} ]]</span>
+    </div>
+    <div class="panel-block filter" data-filter="hot">
+      <div class="panel-icon">
+        <i class="lni-emoji-happy"></i>
+      </div>
+      Happy hour 1st week september 2019 performance?
+    </div>
+    <div class="panel-block filter" data-filter="hot">
+      <div class="panel-icon">
+        <div class="fas fa-campground"></div>
+      </div>
+      Q2 2019 Mitrais Bandung Staff Outing
+      <div class="location">BDG</div>
+    </div>
+    <div class="panel-block filter" data-filter="featured">
+      <div class="panel-icon">
+        <div class="fa fa-fire"></div>
+      </div>
+      Mitrais Benefit 2019 Update
+    </div>
+    <div class="panel-block filter" data-filter="my-region">
+      <div class="panel-icon">
+        <div class="fa fa-fire"></div>
+      </div>
+      Salary increase up to 100% in 2020?
+    </div>
+    <div class="panel-block filter" data-filter="my-region">
+      <div class="panel-icon">
+        <div class="fa fa-fire"></div>
+      </div>
+      Update your tax data for 2019.
+    </div>
+  </div>
+</section>
+<!-- EOF Discussion -->

@@ -1,0 +1,10 @@
+<!doctype html>
+<html lang="en" layout:decorate="~{layouts/main}">
+<body>
+<div layout:fragment="content">
+    <div th:replace="fragments/discussions::discussions"></div>
+    <div th:replace="fragments/qa::qa"></div>
+    <div th:replace="fragments/qathreads::qathreads"></div>
+</div>
+</body>
+</html>

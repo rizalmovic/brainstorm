@@ -1,0 +1,67 @@
+<!-- Navigation -->
+<nav
+  class="navbar has-shadow is-fixed-top"
+  role="navigation"
+  aria-label="main navigation"
+  th:fragment="header"
+>
+  <div class="container">
+    <div class="columns">
+      <div class="column is-two-thirds">
+        <div class="navbar-brand">
+          <a class="navbar-item" href="/">
+            <h1 class="title-hide">Brainstorm</h1>
+            <img src="/images/img-brainstorm-logo.png" alt="Brainstorm" />
+          </a>
+          <a
+            role="button"
+            class="navbar-burger"
+            aria-label="menu"
+            aria-expanded="true"
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="navbar-end navbar-menu">
+          <div class="navbar-item pr-0">
+            <div class="control has-icons-right">
+              <input
+                class="input"
+                type="text"
+                placeholder="Search your question?"
+                style="width: 35em"
+              />
+              <span class="icon is-right">
+                <i class="icons icon-magnifier muted"></i>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div class="navbar-end navbar-menu">
+          <a class="navbar-item">
+            <i class="icons icon-settings"></i>
+          </a>
+          <a class="navbar-item">
+            <i class="icons icon-envelope"></i>
+          </a>
+          <a class="navbar-item">
+            <i class="icons icon-bell"></i>
+          </a>
+          <div class="navbar-item">
+            <figure class="image is-32x32">
+              <img
+                src="https://randomuser.me/api/portraits/women/75.jpg"
+                class="avatar is-rounded"
+              />
+            </figure>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+<!-- End of Navigation -->
