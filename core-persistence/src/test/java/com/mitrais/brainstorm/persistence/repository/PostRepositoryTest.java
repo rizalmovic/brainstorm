@@ -37,7 +37,8 @@ class PostRepositoryTest {
 
 		StepVerifier.create(recreateCollection).expectNextCount(1).verifyComplete();
 
-		Flux<Post> insertAll = operations.insertAll(Flux.just(new Post("1235 " + tp.sentence(), tp.paragraph(5)), //
+		Flux<Post> insertAll = operations.insertAll(Flux.just(
+				new Post("1235 " + tp.sentence(), tp.paragraph(5)), //
 				new Post(tp.sentence(), tp.paragraph(5)), //
 				new Post(tp.sentence(), tp.paragraph(5)), //
 				new Post(tp.sentence(), tp.paragraph(5))).collectList());

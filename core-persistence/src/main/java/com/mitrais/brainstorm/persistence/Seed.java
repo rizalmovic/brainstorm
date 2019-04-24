@@ -1,8 +1,14 @@
 package com.mitrais.brainstorm.persistence;
 
 import com.devskiller.jfairy.Fairy;
+import com.devskiller.jfairy.producer.person.Person;
 import com.devskiller.jfairy.producer.text.TextProducer;
+import com.mitrais.brainstorm.persistence.domain.Account;
 import com.mitrais.brainstorm.persistence.domain.Post;
+import com.mitrais.brainstorm.persistence.domain.PostCategory;
+import com.mitrais.brainstorm.persistence.domain.PostType;
+import com.mitrais.brainstorm.persistence.repository.AccountRepository;
+import com.mitrais.brainstorm.persistence.repository.PostCategoryRepository;
 import com.mitrais.brainstorm.persistence.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -25,13 +31,19 @@ public class Seed implements CommandLineRunner {
     private PostRepository postRepository;
 
     @Autowired
+    private PostCategoryRepository postCategoryRepository;
+
+    @Autowired
+    private AccountRepository accountRepository;
+
+    @Autowired
     private ReactiveMongoOperations mongo;
 
     public static void main(String[] args) {
         SpringApplication.run(Seed.class, args);
     }
 
-    public void populateData() {
+    public void populatePosts() {
         System.out.println("Populating Data...");
 
         TextProducer producer = Fairy.create().textProducer();
@@ -48,8 +60,10 @@ public class Seed implements CommandLineRunner {
 
         List<Post> posts = new ArrayList<>();
 
+        List<PostCategory> categories = this.postCategoryRepository.findAll().take(2).collectList().block();
+
         for(int i = 0; i < 10; i++) {
-            posts.add(new Post(producer.sentence(), producer.paragraph(5)));
+            posts.add(new Post(producer.sentence(), producer.sentence(5), PostType.QUESTION, categories));
         }
 
         this.postRepository
@@ -60,8 +74,66 @@ public class Seed implements CommandLineRunner {
         System.out.println("Finish populating data.");
     }
 
+    public void populatePostCategories() {
+        System.out.println("Populate Post Categories...");
+        TextProducer producer = Fairy.create().textProducer();
+
+        // Drop and Create collection
+        this.mongo.collectionExists(PostCategory.class)
+                .flatMap(e -> e ? this.mongo.dropCollection(PostCategory.class) : Mono.just(e))
+                .flatMap(o -> this.mongo.createCollection(
+                            PostCategory.class,
+                            CollectionOptions.empty().size(1024 * 1024).maxDocuments(100).capped()
+                        )
+                )
+                .then()
+                .block();
+
+        List<PostCategory> categories = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++) {
+            categories.add(new PostCategory(producer.sentence()));
+        }
+
+        this.postCategoryRepository.saveAll(categories);
+        System.out.println("Populate Post category has been succeeded");
+    }
+
+    public void populateAccounts() {
+        System.out.println("Populate Accounts");
+        TextProducer producer = Fairy.create().textProducer();
+        Person person =  Fairy.create().person();
+
+
+        // Drop and Create collection
+        this.mongo.collectionExists(Account.class)
+            .flatMap(e -> e ? this.mongo.dropCollection(Account.class) : Mono.just(e))
+            .flatMap(o -> this.mongo.createCollection(
+                    Account.class,
+                    CollectionOptions.empty().size(1024 * 1024).maxDocuments(100).capped()
+                )
+            )
+            .then()
+            .block();
+
+        List<Account> accounts = new ArrayList<>();
+
+        for(int i = 0; i < 10; i++) {
+            accounts.add(new Account(
+                    person.getFullName(),
+                    person.getEmail(),
+                    person.getPassword()
+                )
+            );
+        }
+        this.accountRepository.saveAll(accounts);
+        System.out.println("Populate Accounts has been succeeded");
+    }
+
     @Override
     public void run(String... args) {
-        this.populateData();
+        this.populateAccounts();
+        this.populatePostCategories();
+        this.populatePosts();
     }
 }
